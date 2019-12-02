@@ -84,7 +84,7 @@ an integer.
 =cut
 
 sub from_lehmer {
-    my @lehmer = @{+shift};
+    my @lehmer = @{+shift}; # important that a copy is made
     my $f = 0;
     return sum map { product pop @lehmer, 2..$f++ } 1..@lehmer;
 }
@@ -100,7 +100,6 @@ Lehmer code.
 
 sub to_lehmer {
     my $n = shift;
-
     return [ _to_lehmer($n, _length_of_lehmer($n)) ];
 }
 
@@ -139,13 +138,13 @@ sub _length_of_lehmer {
 # =cut
 
 sub _to_lehmer {
-    my ($n, $max_factorial)  = @_;
-    return 0 if $max_factorial <= 1;
+    my ($n, $length)  = @_;
+    return 0 if $length <= 1;
 
-    my $multiplier = product 2.. $max_factorial - 1;
+    my $multiplier = product 2.. $length - 1;
     my $digit = int $n / $multiplier;
     return $digit,
-           _to_lehmer($n % $multiplier, $max_factorial - 1);
+           _to_lehmer($n % $multiplier, $length - 1);
 }
 
 =head1 AUTHOR
