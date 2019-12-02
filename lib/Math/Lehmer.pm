@@ -56,6 +56,12 @@ and, decimal 123 converts to 1, 0, 0, 1, 1, 0:
                           1   0   0   1   1   0  =  120 + 2 + 1
                                                  =  123 decimal
 
+Each digit can be no higher that its factorial number. That is, if the
+digit has a weighting of 3!, the digit can be 3 at most. Thus counting
+to decimal 10 in Lehmer would proceed as follows: 0 (0), 10 (1), 100
+(2), 110 (3), 200 (4), 210 (5), 1000 (6), 1010 (7), 1100 (8), 1110
+(9), 1200 (10)
+
 =head1 EXPORT
 
 Two functions are exported: C<to_lehmer> and C<from_lehmer>.
@@ -68,7 +74,12 @@ our @EXPORT = qw( from_lehmer to_lehmer );
 
 =head1 FUNCTIONS
 
-=head2 from_lehmer($lehmer): $integer
+=head2 from_lehmer
+
+    $number = from_lehmer($lehmer)
+
+Converts a valid Lehmer code stored as an arrayref in C<$lehmer> into
+an integer.
 
 =cut
 
@@ -78,7 +89,12 @@ sub from_lehmer {
     return sum map { product pop @lehmer, 2..$f++ } 1..@lehmer;
 }
 
-=head2 to_lehmer($integer): $lehmer
+=head2 to_lehmer
+
+    $lehmer = to_lehmer($number)
+
+Converts C<$number> into an arrayref of integers that represent a
+Lehmer code.
 
 =cut
 
@@ -87,6 +103,17 @@ sub to_lehmer {
 
     return [ _to_lehmer($n, _length_of_lehmer($n)) ];
 }
+
+# =head2 _length_of_lehmer
+#
+#     $length = _length_of_lehmer($number)
+#
+# Determines the number of digits required to represent C<$number> as
+# a Lehmer code.
+#
+# This is a helper function for C<to_lehmer()>.
+#
+# =cut
 
 sub _length_of_lehmer {
     my $n = shift;
@@ -100,6 +127,16 @@ sub _length_of_lehmer {
 
     return $k - 1;
 }
+
+# =head2 _to_lehmer
+#
+#     $lehmer = _to_lehmer($number, $length)
+#
+# Converts C<$number> in a C<$length> digit Lehmer code.
+#
+# This is a helper function for C<to_lehmer()>.
+#
+# =cut
 
 sub _to_lehmer {
     my ($n, $max_factorial)  = @_;
@@ -117,6 +154,8 @@ Brian Greenfield, C<< <briang at cpan.org> >>
 
 =head1 BUGS
 
+XXX
+
 Please report any bugs or feature requests to C<bug-math-lehmer at
 rt.cpan.org>, or through the web interface at
 L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=Math-Lehmer>.  I
@@ -124,6 +163,8 @@ will be notified, and then you'll automatically be notified of
 progress on your bug as I make changes.
 
 =head1 SUPPORT
+
+XXX
 
 You can find documentation for this module with the perldoc command.
 
