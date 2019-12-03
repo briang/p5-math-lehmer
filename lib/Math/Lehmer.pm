@@ -30,7 +30,7 @@ our $VERSION = '0.001';
 Conventionally, we use base-10 (decimal) numbers and, in computing,
 base-2 (binary) and base-16 (hexadecimal) numbers are common.
 
-Lehmer codes (see L</REFERENCES>) are another way of representating
+Lehmer codes (see L</REFERENCES>) are another way of representing
 integer values.
 
 In a decimal integer, as we move from rightmost digit to the leftmost,
@@ -42,7 +42,7 @@ least-significant digit having a weighting of 0!, the next having a
 weighting of 1! and so on. Given that 0! and 1! are equal, the
 right-most digit is always 0.
 
-For example, the lemer code for decimal 16 is 2, 2, 0, 0:
+For example, the Lehmer code for decimal 16 is 2, 2, 0, 0:
 
     factorials:         3!  2!  1!  0!
     decimal weighting:  6   2   0   0
