@@ -147,49 +147,25 @@ sub _to_lehmer {
            _to_lehmer($n % $multiplier, $length - 1);
 }
 
-=head1 AUTHOR
-
-Brian Greenfield, C<< <briang at cpan.org> >>
-
-=head1 BUGS
-
-XXX
-
-Please report any bugs or feature requests to C<bug-math-lehmer at
-rt.cpan.org>, or through the web interface at
-L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=Math-Lehmer>.  I
-will be notified, and then you'll automatically be notified of
-progress on your bug as I make changes.
-
 =head1 SUPPORT
 
-XXX
+=head2 Documentation
 
-You can find documentation for this module with the perldoc command.
+You can read the documentation for this module from the command line
+with C<perldoc Math::Lehmer>, or online at
+L<meta::cpan|https://metacpan.org/release/Math::Lehmer> or
+L<GitHub|https://github.com/briang/p5-math-lehmer>.
 
-    perldoc Math::Lehmer
+=head2 Bugs
 
-You can also look for information at:
+If you find any bugs, please report them on the L<GitHub issue
+tracker|https://github.com/briang/p5-math-lehmer/issues>.
 
-=over 4
+=head2 Source code
 
-=item * RT: CPAN's request tracker (report bugs here)
-
-L<https://rt.cpan.org/NoAuth/Bugs.html?Dist=Math-Lehmer>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/Math-Lehmer>
-
-=item * CPAN Ratings
-
-L<https://cpanratings.perl.org/d/Math-Lehmer>
-
-=item * Search CPAN
-
-L<https://metacpan.org/release/Math-Lehmer>
-
-=back
+You can download the source code from
+L<GitHub|https://github.com/briang/p5-math-lehmer> or from
+L<meta::cpan|https://metacpan.org/release/Math::Lehmer>.
 
 =head1 REFERENCES
 
@@ -204,6 +180,10 @@ algorithms|https://stackoverflow.com/questions/1506078/fast-permutations-number-
 
 keithschwarz.com, L<factoradic
 permutation|http://keithschwarz.com/code/?dir=factoradic-permutation>
+
+=head1 AUTHOR
+
+Brian Greenfield, C<< <briang at cpan dot org> >>
 
 =head1 LICENSE AND COPYRIGHT
 
